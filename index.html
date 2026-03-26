@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo do Git - Controle de Versão para Desenvolvedores</title>
+    <meta name="description" content="Aprenda tudo sobre Git: o que é, para que serve, como instalar e usar. Tutorial completo para iniciantes e desenvolvedores.">
+    <meta name="keywords" content="Git, GitHub, controle de versão, programação, desenvolvimento, tutorial git, como usar git">
+    <meta name="author" content="Git Guide">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐙</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="git-logo">
+                    <i class="fab fa-git-alt"></i>
+                </div>
+                <h1>Guia Completo do Git</h1>
+                <p class="subtitle">Tudo o que você precisa saber sobre controle de versão</p>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#o-que-e" class="nav-link"><i class="fas fa-question-circle"></i> O que é</a></li>
+                        <li><a href="#para-que-serve" class="nav-link"><i class="fas fa-tools"></i> Para que serve</a></li>
+                        <li><a href="#quem-deve-usar" class="nav-link"><i class="fas fa-users"></i> Para quem</a></li>
+                        <li><a href="#instalacao" class="nav-link"><i class="fas fa-download"></i> Instalação</a></li>
+                        <li><a href="#comandos" class="nav-link"><i class="fas fa-terminal"></i> Comandos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Seção: O que é Git -->
+        <section id="o-que-e" class="content-section">
+            <h2><i class="fas fa-question-circle"></i> O que é Git?</h2>
+            <div class="card">
+                <p>Git é um sistema de controle de versão distribuído criado por <strong>Linus Torvalds</strong> em 2005, o mesmo criador do kernel Linux. É uma ferramenta essencial para desenvolvedores que permite rastrear mudanças no código-fonte durante o desenvolvimento de software.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Controle de Versão</h3>
+                        <p>Registra todas as alterações feitas no código ao longo do tempo</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h3>Colaboração</h3>
+                        <p>Permite que várias pessoas trabalhem no mesmo projeto simultaneamente</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-history"></i>
+                        <h3>Histórico</h3>
+                        <p>Mantém um histórico completo de todas as modificações</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-undo"></i>
+                        <h3>Reversão</h3>
+                        <p>Permite voltar a versões anteriores do código quando necessário</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Para que serve -->
+        <section id="para-que-serve" class="content-section">
+            <h2><i class="fas fa-tools"></i> Para que serve o Git?</h2>
+            <div class="card">
+                <p>O Git resolve problemas comuns no desenvolvimento de software:</p>
+                
+                <div class="use-case">
+                    <h3><i class="fas fa-file-code"></i> Controle de Mudanças</h3>
+                    <p>Evita a perda de código importante, permitindo que você volte a qualquer ponto no histórico do projeto.</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3><i class="fas fa-user-friends"></i> Trabalho em Equipe</h3>
+                    <p>Facilita a colaboração entre desenvolvedores, mesmo que estejam em locais diferentes.</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3><i class="fas fa-code"></i> Experimentação Segura</h3>
+                    <p>Permite criar branches (ramos) para testar novas funcionalidades sem afetar o código principal.</p>
+                </div>
+                
+                <div class="use-case">
+                    <h3><i class="fas fa-bug"></i> Debugging</h3>
+                    <p>Ajuda a identificar quando e onde um bug foi introduzido no código.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Para quem é -->
+        <section id="quem-deve-usar" class="content-section">
+            <h2><i class="fas fa-users"></i> Para quem o Git é indicado?</h2>
+            <div class="card">
+                <p>O Git é útil para diversos profissionais e situações:</p>
+                
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Desenvolvedores</h3>
+                        <p>Profissionais que escrevem código regularmente</p>
+                    </div>
+                    <div class="audience-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Estudantes</h3>
+                        <p>Universitários e aprendizes de programação</p>
+                    </div>
+                    <div class="audience-card">
+                        <i class="fas fa-pen-fancy"></i>
+                        <h3>Designers</h3>
+                        <p>Que trabalham com arquivos de design versionados</p>
+                    </div>
+                    <div class="audience-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Escritores</h3>
+                        <p>Que precisam versionar documentos e livros</p>
+                    </div>
+                </div>
+                
+                <div class="when-to-start">
+                    <h3><i class="fas fa-calendar-check"></i> Quando começar a usar?</h3>
+                    <p>Você deve começar a usar Git quando:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Iniciar seu primeiro projeto de programação</li>
+                        <li><i class="fas fa-check-circle"></i> Trabalhar em equipe em qualquer projeto</li>
+                        <li><i class="fas fa-check-circle"></i> Precisar manter histórico de alterações</li>
+                        <li><i class="fas fa-check-circle"></i> Quiser contribuir com projetos open source</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Instalação -->
+        <section id="instalacao" class="content-section">
+            <h2><i class="fas fa-download"></i> Como instalar o Git</h2>
+            <div class="card">
+                <p>O Git está disponível para Windows, macOS e Linux. Siga os passos abaixo para sua plataforma:</p>
+                
+                <div class="installation-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="windows"><i class="fab fa-windows"></i> Windows</button>
+                        <button class="tab-btn" data-tab="mac"><i class="fab fa-apple"></i> macOS</button>
+                        <button class="tab-btn" data-tab="linux"><i class="fab fa-linux"></i> Linux</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="windows">
+                        <h3>Instalação no Windows</h3>
+                        <ol>
+                            <li>Acesse o site oficial: <a href="https://git-scm.com/download/win" target="_blank">git-scm.com/download/win</a></li>
+                            <li>Baixe o instalador para sua versão do Windows (32 ou 64 bits)</li>
+                            <li>Execute o arquivo baixado e siga as instruções do instalador</li>
+                            <li>Mantenha as configurações padrão recomendadas</li>
+                            <li>Após a instalação, abra o Git Bash ou Prompt de Comando</li>
+                            <li>Verifique a instalação com o comando: <code>git --version</code></li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tab-content" id="mac">
+                        <h3>Instalação no macOS</h3>
+                        <ol>
+                            <li><strong>Via Homebrew (recomendado):</strong></li>
+                            <li>Abra o Terminal</li>
+                            <li>Instale o Homebrew se ainda não tiver: <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></li>
+                            <li>Instale o Git: <code>brew install git</code></li>
+                            <li><strong>Alternativa:</strong> Baixe o instalador em <a href="https://git-scm.com/download/mac" target="_blank">git-scm.com/download/mac</a></li>
+                            <li>Verifique a instalação: <code>git --version</code></li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tab-content" id="linux">
+                        <h3>Instalação no Linux</h3>
+                        <p>Use o gerenciador de pacotes da sua distribuição:</p>
+                        
+                        <div class="linux-distros">
+                            <div class="distro">
+                                <h4>Ubuntu/Debian</h4>
+                                <code>sudo apt update && sudo apt install git</code>
+                            </div>
+                            <div class="distro">
+                                <h4>Fedora</h4>
+                                <code>sudo dnf install git</code>
+                            </div>
+                            <div class="distro">
+                                <h4>Arch Linux</h4>
+                                <code>sudo pacman -S git</code>
+                            </div>
+                            <div class="distro">
+                                <h4>CentOS/RHEL</h4>
+                                <code>sudo yum install git</code>
+                            </div>
+                        </div>
+                        
+                        <p>Após instalar, verifique com: <code>git --version</code></p>
+                    </div>
+                </div>
+                
+                <div class="config-steps">
+                    <h3><i class="fas fa-cog"></i> Configuração Inicial</h3>
+                    <p>Após instalar, configure seu usuário:</p>
+                    <div class="code-block">
+                        <code>git config --global user.name "Seu Nome"</code>
+                        <button class="copy-btn" data-code='git config --global user.name "Seu Nome"'><i class="far fa-copy"></i></button>
+                    </div>
+                    <div class="code-block">
+                        <code>git config --global user.email "seu@email.com"</code>
+                        <button class="copy-btn" data-code='git config --global user.email "seu@email.com"'><i class="far fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Comandos Básicos -->
+        <section id="comandos" class="content-section">
+            <h2><i class="fas fa-terminal"></i> Comandos Git Essenciais</h2>
+            <div class="card">
+                <p>Estes são os comandos mais importantes que você precisa conhecer:</p>
+                
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git init</h3>
+                            <span class="command-tag básico">Básico</span>
+                        </div>
+                        <p>Inicializa um novo repositório Git em um diretório</p>
+                        <div class="code-block small">
+                            <code>git init</code>
+                            <button class="copy-btn" data-code="git init"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git clone</h3>
+                            <span class="command-tag básico">Básico</span>
+                        </div>
+                        <p>Clona um repositório existente para sua máquina local</p>
+                        <div class="code-block small">
+                            <code>git clone https://github.com/usuario/repositorio.git</code>
+                            <button class="copy-btn" data-code="git clone https://github.com/usuario/repositorio.git"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git add</h3>
+                            <span class="command-tag básico">Básico</span>
+                        </div>
+                        <p>Adiciona arquivos ao staging area (preparação para commit)</p>
+                        <div class="code-block small">
+                            <code>git add arquivo.txt</code>
+                            <button class="copy-btn" data-code="git add arquivo.txt"><i class="far fa-copy"></i></button>
+                        </div>
+                        <div class="code-block small">
+                            <code>git add .</code>
+                            <button class="copy-btn" data-code="git add ."><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git commit</h3>
+                            <span class="command-tag básico">Básico</span>
+                        </div>
+                        <p>Registra as mudanças no repositório com uma mensagem</p>
+                        <div class="code-block small">
+                            <code>git commit -m "Mensagem descritiva"</code>
+                            <button class="copy-btn" data-code='git commit -m "Mensagem descritiva"'><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git push</h3>
+                            <span class="command-tag intermediário">Intermediário</span>
+                        </div>
+                        <p>Envia commits locais para um repositório remoto</p>
+                        <div class="code-block small">
+                            <code>git push origin main</code>
+                            <button class="copy-btn" data-code="git push origin main"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git pull</h3>
+                            <span class="command-tag intermediário">Intermediário</span>
+                        </div>
+                        <p>Baixa e integra alterações do repositório remoto</p>
+                        <div class="code-block small">
+                            <code>git pull origin main</code>
+                            <button class="copy-btn" data-code="git pull origin main"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git branch</h3>
+                            <span class="command-tag intermediário">Intermediário</span>
+                        </div>
+                        <p>Lista, cria ou deleta branches (ramos)</p>
+                        <div class="code-block small">
+                            <code>git branch</code>
+                            <button class="copy-btn" data-code="git branch"><i class="far fa-copy"></i></button>
+                        </div>
+                        <div class="code-block small">
+                            <code>git branch nova-feature</code>
+                            <button class="copy-btn" data-code="git branch nova-feature"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git merge</h3>
+                            <span class="command-tag avançado">Avançado</span>
+                        </div>
+                        <p>Combina branches diferentes</p>
+                        <div class="code-block small">
+                            <code>git merge nome-da-branch</code>
+                            <button class="copy-btn" data-code="git merge nome-da-branch"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git status</h3>
+                            <span class="command-tag básico">Básico</span>
+                        </div>
+                        <p>Mostra o estado atual do repositório</p>
+                        <div class="code-block small">
+                            <code>git status</code>
+                            <button class="copy-btn" data-code="git status"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git log</h3>
+                            <span class="command-tag básico">Básico</span>
+                        </div>
+                        <p>Exibe o histórico de commits</p>
+                        <div class="code-block small">
+                            <code>git log</code>
+                            <button class="copy-btn" data-code="git log"><i class="far fa-copy"></i></button>
+                        </div>
+                        <div class="code-block small">
+                            <code>git log --oneline</code>
+                            <button class="copy-btn" data-code="git log --oneline"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git checkout</h3>
+                            <span class="command-tag intermediário">Intermediário</span>
+                        </div>
+                        <p>Muda entre branches ou restaura arquivos</p>
+                        <div class="code-block small">
+                            <code>git checkout nome-da-branch</code>
+                            <button class="copy-btn" data-code="git checkout nome-da-branch"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>git reset</h3>
+                            <span class="command-tag avançado">Avançado</span>
+                        </div>
+                        <p>Desfaz commits ou muda o estado do repositório</p>
+                        <div class="code-block small">
+                            <code>git reset --soft HEAD~1</code>
+                            <button class="copy-btn" data-code="git reset --soft HEAD~1"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="workflow">
+                    <h3><i class="fas fa-project-diagram"></i> Fluxo de Trabalho Básico</h3>
+                    <div class="workflow-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h4>git init / git clone</h4>
+                            <p>Iniciar ou clonar repositório</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h4>git add</h4>
+                            <p>Adicionar alterações</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h4>git commit</h4>
+                            <p>Salvar com mensagem</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h4>git push</h4>
+                            <p>Enviar para remoto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Próximos Passos -->
+        <section id="proximos-passos" class="content-section">
+            <h2><i class="fas fa-road"></i> Próximos Passos</h2>
+            <div class="card">
+                <p>Agora que você conhece o básico do Git, aqui estão os próximos passos recomendados:</p>
+                
+                <div class="next-steps">
+                    <div class="next-step">
+                        <i class="fab fa-github"></i>
+                        <h3>Crie uma conta no GitHub</h3>
+                        <p>GitHub é a plataforma mais popular para hospedar repositórios Git. É essencial para portfólio e colaboração.</p>
+                        <a href="https://github.com" target="_blank" class="action-btn">Criar Conta <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <div class="next-step">
+                        <i class="fas fa-book"></i>
+                        <h3>Pratique com projetos reais</h3>
+                        <p>Crie um projeto simples e use Git para versioná-lo. Pratique os comandos básicos diariamente.</p>
+                        <button class="action-btn" id="practice-tips">Ver Dicas</button>
+                    </div>
+                    
+                    <div class="next-step">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Aprenda fluxos avançados</h3>
+                        <p>Estude Git Flow, GitHub Flow e outros modelos de trabalho em equipe com Git.</p>
+                        <button class="action-btn" id="advanced-topics">Tópicos Avançados</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Área para anúncios -->
+        <div class="ad-container">
+            <div class="ad-placeholder">
+                <p>Espaço para anúncios (AdSense)</p>
+                <small>Anúncios relevantes sobre desenvolvimento e Git aparecerão aqui</small>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Guia Completo do Git</h3>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Recursos Úteis</h4>
+                    <ul>
+                        <li><a href="https://git-scm.com/doc" target="_blank">Documentação Oficial</a></li>
+                        <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                        <li><a href="https://gitlab.com" target="_blank">GitLab</a></li>
+                        <li><a href="https://www.atlassian.com/git/tutorials" target="_blank">Tutoriais Atlassian</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Fique Atualizado</h4>
+                    <p>Receba dicas sobre Git e desenvolvimento</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Seu melhor e-mail" required>
+                        <button type="submit">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Guia Completo do Git. Este site é educativo e não tem afiliação com Git ou GitHub.</p>
+                <p class="disclaimer">Git é uma marca registrada de Linus Torvalds. Este conteúdo é apenas para fins educacionais.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para dicas -->
+    <div id="tips-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-lightbulb"></i> Dicas para Praticar Git</h2>
+            <ul>
+                <li>Crie um repositório para um projeto simples (como uma calculadora)</li>
+                <li>Faça pequenas alterações e commite frequentemente</li>
+                <li>Experimente criar e mesclar branches</li>
+                <li>Use o GitHub para hospedar seu código</li>
+                <li>Participe de projetos open source para praticar colaboração</li>
+                <li>Resolva conflitos de merge intencionalmente para aprender</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal para tópicos avançados -->
+    <div id="advanced-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-rocket"></i> Tópicos Avançados de Git</h2>
+            <div class="advanced-topics">
+                <div class="topic">
+                    <h3><i class="fas fa-code-branch"></i> Git Flow</h3>
+                    <p>Modelo de branching para projetos com releases planejadas</p>
+                </div>
+                <div class="topic">
+                    <h3><i class="fas fa-user-check"></i> Hooks do Git</h3>
+                    <p>Scripts que rodam automaticamente em eventos específicos</p>
+                </div>
+                <div class="topic">
+                    <h3><i class="fas fa-search"></i> Git Bisect</h3>
+                    <p>Encontra o commit que introduziu um bug usando busca binária</p>
+                </div>
+                <div class="topic">
+                    <h3><i class="fas fa-edit"></i> Rebase Interativo</h3>
+                    <p>Reescreve o histórico de commits de forma interativa</p>
+                </div>
+                <div class="topic">
+                    <h3><i class="fas fa-box"></i> Submódulos</h3>
+                    <p>Incorpora outros repositórios dentro do seu projeto</p>
+                </div>
+                <div class="topic">
+                    <h3><i class="fas fa-tags"></i> Tags Anotadas</h3>
+                    <p>Marca releases importantes com metadados adicionais</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão para voltar ao topo -->
+    <button id="back-to-top" title="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
